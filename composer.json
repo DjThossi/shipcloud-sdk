@@ -1,0 +1,32 @@
+{
+    "name": "djthossi/shipcloud-sdk",
+    "description": "This project is an SDK for shipcloud's API. Thanks to comyo-media/shipcloud-php for providing the PHP 5.4+ version which works pretty similar and inspired me to build this php 8.1+ version",
+    "keywords": [
+        "PHP",
+        "shipcloud",
+        "SDK",
+        "API"
+    ],
+    "authors": [
+        {
+            "name": "Sebastian Thoss",
+            "email": "dj_thossi@web.de",
+            "homepage": "http://www.sebastianthoss.de"
+        }
+    ],
+    "require": {
+        "php": "^8.1.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.3",
+        "friendsofphp/php-cs-fixer": "^3.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "DjThossi\\ShipcloudSdk\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
