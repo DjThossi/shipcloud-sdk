@@ -6,6 +6,7 @@ namespace DjThossi\ShipcloudSdk\Tests\Integration;
 
 use DjThossi\ShipcloudSdk\Api\AddressesApi;
 use DjThossi\ShipcloudSdk\Api\CarriersApi;
+use DjThossi\ShipcloudSdk\Api\DefaultReturnsAddressApi;
 use DjThossi\ShipcloudSdk\Factory;
 use PHPUnit\Framework\TestCase;
 
@@ -25,6 +26,14 @@ class FactoryTest extends TestCase
 
         /* @noinspection UnnecessaryAssertionInspection */
         $this->assertInstanceOf(CarriersApi::class, $object);
+    }
+
+    public function testCanGetDefaultReturnsAddressApi(): void
+    {
+        $object = $this->createFactory()->getDefaultReturnsAddressApi();
+
+        /* @noinspection UnnecessaryAssertionInspection */
+        $this->assertInstanceOf(DefaultReturnsAddressApi::class, $object);
     }
 
     private function createFactory(): Factory
