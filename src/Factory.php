@@ -7,6 +7,9 @@ namespace DjThossi\ShipcloudSdk;
 use DjThossi\ShipcloudSdk\Api\AddressesApi;
 use DjThossi\ShipcloudSdk\Api\CarriersApi;
 use DjThossi\ShipcloudSdk\Api\DefaultReturnsAddressApi;
+use DjThossi\ShipcloudSdk\Api\DefaultShippingAddressApi;
+use DjThossi\ShipcloudSdk\Api\InvoiceAddressApi;
+use DjThossi\ShipcloudSdk\Api\MeApi;
 use DjThossi\ShipcloudSdk\Http\Client;
 
 class Factory
@@ -29,6 +32,21 @@ class Factory
     public function getDefaultReturnsAddressApi(): DefaultReturnsAddressApi
     {
         return new DefaultReturnsAddressApi($this->createClient());
+    }
+
+    public function getDefaultShippingAddressApi(): DefaultShippingAddressApi
+    {
+        return new DefaultShippingAddressApi($this->createClient());
+    }
+
+    public function getInvoiceAddressApi(): InvoiceAddressApi
+    {
+        return new InvoiceAddressApi($this->createClient());
+    }
+
+    public function getMeApi(): MeApi
+    {
+        return new MeApi($this->createClient());
     }
 
     protected function createClient(): Client
