@@ -13,6 +13,7 @@ use DjThossi\ShipcloudSdk\Api\MeApi;
 use DjThossi\ShipcloudSdk\Api\PickupRequestsApi;
 use DjThossi\ShipcloudSdk\Api\ShipmentQuotesApi;
 use DjThossi\ShipcloudSdk\Api\ShipmentsApi;
+use DjThossi\ShipcloudSdk\Api\TrackersApi;
 use DjThossi\ShipcloudSdk\Http\Client;
 
 class Factory
@@ -65,6 +66,11 @@ class Factory
     public function getShipmentsApi(): ShipmentsApi
     {
         return new ShipmentsApi($this->createClient());
+    }
+
+    public function getTrackersApi(): TrackersApi
+    {
+        return new TrackersApi($this->createClient());
     }
 
     protected function createClient(): Client

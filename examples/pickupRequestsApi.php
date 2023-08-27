@@ -11,7 +11,7 @@ $shipcloudFactory = new DjThossi\ShipcloudSdk\Factory($sandboxApiKey);
 // List all pickup requests
 $result = $shipcloudFactory->getPickupRequestsApi()->all();
 
-// Create your pickup requests
+// Create your first pickup request
 /*
 $result = $shipcloudFactory->getPickupRequestsApi()->create([
     "carrier" => "ups",

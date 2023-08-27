@@ -13,6 +13,7 @@ use DjThossi\ShipcloudSdk\Api\MeApi;
 use DjThossi\ShipcloudSdk\Api\PickupRequestsApi;
 use DjThossi\ShipcloudSdk\Api\ShipmentQuotesApi;
 use DjThossi\ShipcloudSdk\Api\ShipmentsApi;
+use DjThossi\ShipcloudSdk\Api\TrackersApi;
 use DjThossi\ShipcloudSdk\Factory;
 use PHPUnit\Framework\TestCase;
 
@@ -88,6 +89,14 @@ class FactoryTest extends TestCase
 
         /* @noinspection UnnecessaryAssertionInspection */
         $this->assertInstanceOf(ShipmentsApi::class, $object);
+    }
+
+    public function testCanGetTrackersApi(): void
+    {
+        $object = $this->createFactory()->getTrackersApi();
+
+        /* @noinspection UnnecessaryAssertionInspection */
+        $this->assertInstanceOf(TrackersApi::class, $object);
     }
 
     private function createFactory(): Factory
