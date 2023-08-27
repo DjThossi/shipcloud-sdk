@@ -13,6 +13,8 @@ This library is supporting the following entities in shipcloud's version v1
 - Shipment quote
 - Shipments
 
+The Endpoint `Rates` is not part of this library as it is deprecated and will be removed in later versions. Use `Shipment Quuotes` instead.
+
 This library is made for PHP projects featuring PHP version 8.1+.
 If you are looking for a library for PHP version between 5.4 and 7.4 try https://github.com/comyo-media/shipcloud-php
 

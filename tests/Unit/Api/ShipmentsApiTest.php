@@ -1,0 +1,69 @@
+<?php
+
+declare(strict_types=1);
+
+namespace DjThossi\ShipcloudSdk\Tests\Unit\Api;
+
+use DjThossi\ShipcloudSdk\Api\ShipmentsApi;
+use DjThossi\ShipcloudSdk\Http\Client;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+
+class ShipmentsApiTest extends TestCase
+{
+    public function testAll(): void
+    {
+        $clientMock = $this->createMock(Client::class);
+        $clientMock->expects($this->once())
+            ->method('get')
+            ->willReturn(new Response(200, [], '{"foo": "bar"}'));
+
+        $api = new ShipmentsApi($clientMock);
+        $result = $api->all();
+        $this->assertIsArray($result);
+        $this->assertCount(1, $result);
+        $this->assertEquals(['foo' => 'bar'], $result);
+    }
+
+    public function testFind(): void
+    {
+        $clientMock = $this->createMock(Client::class);
+        $clientMock->expects($this->once())
+            ->method('get')
+            ->willReturn(new Response(200, [], '{"foo": "bar"}'));
+
+        $api = new ShipmentsApi($clientMock);
+        $result = $api->find('1234567');
+        $this->assertIsArray($result);
+        $this->assertCount(1, $result);
+        $this->assertEquals(['foo' => 'bar'], $result);
+    }
+
+    public function testCreate(): void
+    {
+        $clientMock = $this->createMock(Client::class);
+        $clientMock->expects($this->once())
+            ->method('post')
+            ->willReturn(new Response(200, [], '{"foo": "bar"}'));
+
+        $api = new ShipmentsApi($clientMock);
+        $result = $api->create([
+            'key' => 'value',
+        ]);
+        $this->assertIsArray($result);
+        $this->assertCount(1, $result);
+        $this->assertEquals(['foo' => 'bar'], $result);
+    }
+
+    public function testDelete(): void
+    {
+        $clientMock = $this->createMock(Client::class);
+        $clientMock->expects($this->once())
+            ->method('delete')
+            ->willReturn(new Response(204));
+
+        $api = new ShipmentsApi($clientMock);
+        $result = $api->remove('a5c2...');
+        $this->assertTrue($result);
+    }
+}

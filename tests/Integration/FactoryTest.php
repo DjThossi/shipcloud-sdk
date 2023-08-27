@@ -10,6 +10,9 @@ use DjThossi\ShipcloudSdk\Api\DefaultReturnsAddressApi;
 use DjThossi\ShipcloudSdk\Api\DefaultShippingAddressApi;
 use DjThossi\ShipcloudSdk\Api\InvoiceAddressApi;
 use DjThossi\ShipcloudSdk\Api\MeApi;
+use DjThossi\ShipcloudSdk\Api\PickupRequestsApi;
+use DjThossi\ShipcloudSdk\Api\ShipmentQuotesApi;
+use DjThossi\ShipcloudSdk\Api\ShipmentsApi;
 use DjThossi\ShipcloudSdk\Factory;
 use PHPUnit\Framework\TestCase;
 
@@ -61,6 +64,30 @@ class FactoryTest extends TestCase
 
         /* @noinspection UnnecessaryAssertionInspection */
         $this->assertInstanceOf(MeApi::class, $object);
+    }
+
+    public function testCanGetPickupRequestsApi(): void
+    {
+        $object = $this->createFactory()->getPickupRequestsApi();
+
+        /* @noinspection UnnecessaryAssertionInspection */
+        $this->assertInstanceOf(PickupRequestsApi::class, $object);
+    }
+
+    public function testCanGetShipmentQuotesApi(): void
+    {
+        $object = $this->createFactory()->getShipmentQuotesApi();
+
+        /* @noinspection UnnecessaryAssertionInspection */
+        $this->assertInstanceOf(ShipmentQuotesApi::class, $object);
+    }
+
+    public function testCanGetShipmentsApi(): void
+    {
+        $object = $this->createFactory()->getShipmentsApi();
+
+        /* @noinspection UnnecessaryAssertionInspection */
+        $this->assertInstanceOf(ShipmentsApi::class, $object);
     }
 
     private function createFactory(): Factory

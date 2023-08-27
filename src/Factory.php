@@ -10,6 +10,9 @@ use DjThossi\ShipcloudSdk\Api\DefaultReturnsAddressApi;
 use DjThossi\ShipcloudSdk\Api\DefaultShippingAddressApi;
 use DjThossi\ShipcloudSdk\Api\InvoiceAddressApi;
 use DjThossi\ShipcloudSdk\Api\MeApi;
+use DjThossi\ShipcloudSdk\Api\PickupRequestsApi;
+use DjThossi\ShipcloudSdk\Api\ShipmentQuotesApi;
+use DjThossi\ShipcloudSdk\Api\ShipmentsApi;
 use DjThossi\ShipcloudSdk\Http\Client;
 
 class Factory
@@ -47,6 +50,21 @@ class Factory
     public function getMeApi(): MeApi
     {
         return new MeApi($this->createClient());
+    }
+
+    public function getPickupRequestsApi(): PickupRequestsApi
+    {
+        return new PickupRequestsApi($this->createClient());
+    }
+
+    public function getShipmentQuotesApi(): ShipmentQuotesApi
+    {
+        return new ShipmentQuotesApi($this->createClient());
+    }
+
+    public function getShipmentsApi(): ShipmentsApi
+    {
+        return new ShipmentsApi($this->createClient());
     }
 
     protected function createClient(): Client
