@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace DjThossi\ShipcloudSdk\Api;
 
-class ShipmentsApi extends Api
+class WebhooksApi extends Api
 {
-    private const MAIN_URI = 'shipments';
+    private const MAIN_URI = 'webhooks';
 
     public function create(array $body): array
     {
@@ -23,8 +23,8 @@ class ShipmentsApi extends Api
         return $this->delete(self::MAIN_URI . '/' . $id);
     }
 
-    public function all(array $parameters = []): array
+    public function all(): array
     {
-        return $this->get(self::MAIN_URI, $parameters);
+        return $this->get(self::MAIN_URI);
     }
 }

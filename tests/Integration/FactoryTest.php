@@ -14,6 +14,7 @@ use DjThossi\ShipcloudSdk\Api\PickupRequestsApi;
 use DjThossi\ShipcloudSdk\Api\ShipmentQuotesApi;
 use DjThossi\ShipcloudSdk\Api\ShipmentsApi;
 use DjThossi\ShipcloudSdk\Api\TrackersApi;
+use DjThossi\ShipcloudSdk\Api\WebhooksApi;
 use DjThossi\ShipcloudSdk\Factory;
 use PHPUnit\Framework\TestCase;
 
@@ -97,6 +98,14 @@ class FactoryTest extends TestCase
 
         /* @noinspection UnnecessaryAssertionInspection */
         $this->assertInstanceOf(TrackersApi::class, $object);
+    }
+
+    public function testCanGetWebhooksApi(): void
+    {
+        $object = $this->createFactory()->getWebhooksApi();
+
+        /* @noinspection UnnecessaryAssertionInspection */
+        $this->assertInstanceOf(WebhooksApi::class, $object);
     }
 
     private function createFactory(): Factory

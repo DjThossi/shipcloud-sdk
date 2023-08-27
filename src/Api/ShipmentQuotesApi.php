@@ -6,8 +6,10 @@ namespace DjThossi\ShipcloudSdk\Api;
 
 class ShipmentQuotesApi extends Api
 {
+    private const MAIN_URI = 'shipment_quotes';
+
     public function create(array $body): array
     {
-        return $this->post('shipment_quotes', [], $body);
+        return $this->post(self::MAIN_URI, [], $body);
     }
 }
