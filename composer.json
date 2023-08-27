@@ -1,6 +1,7 @@
 {
     "name": "djthossi/shipcloud-sdk",
     "description": "This project is an SDK for shipcloud's API. Thanks to comyo-media/shipcloud-php for providing the PHP 5.4+ version which works pretty similar and inspired me to build this php 8.1+ version",
+    "license": "MIT",
     "keywords": [
         "PHP",
         "shipcloud",

@@ -10,7 +10,7 @@ This library is supporting the following entities in shipcloud's version v1
 - Default return address
 - Default shipping address
 - Invoice address
-- me
+- Me
 - Pickup request
 - Shipment quote
 - Shipments
