@@ -6,22 +6,18 @@ namespace DjThossi\ShipcloudSdk\Tests\Unit\Api;
 
 use DjThossi\ShipcloudSdk\Api\MeApi;
 use DjThossi\ShipcloudSdk\Http\Client;
-use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 
-class MeApiTest extends TestCase
+class MeApiTest extends ApiTestCase
 {
     public function testShow(): void
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
             ->method('get')
-            ->willReturn(new Response(200, [], '{"foo": "bar"}'));
+            ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new MeApi($clientMock);
-        $result = $api->show();
-        $this->assertIsArray($result);
-        $this->assertCount(1, $result);
-        $this->assertEquals(['foo' => 'bar'], $result);
+        $response = $api->show();
+        $this->assertEquals(['foo' => 'bar'], $response->getBodyAsArray());
     }
 }

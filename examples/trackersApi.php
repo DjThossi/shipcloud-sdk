@@ -16,11 +16,11 @@ $result = $shipcloudFactory->getTrackersApi()->all();
 $result = $shipcloudFactory->getTrackersApi()->create([
     "carrier_tracking_no" => "1XXXXXXXXXX",
     "carrier" => "ups",
-]);
+])->getBodyAsArray();
 //*/
 
 // List a single tracker
-// $result = $shipcloudFactory->getTrackersApi()->find($result['id']);
+// $result = $shipcloudFactory->getTrackersApi()->find($result['id'])->getBodyAsArray();
 
 /* @noinspection ForgottenDebugOutputInspection */
 var_dump($result);

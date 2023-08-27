@@ -23,7 +23,7 @@ $result = $shipcloudFactory->getAddressesApi()->create([
     'city' => 'Musterstadt',
     'country' => 'DE',
     'phone' => '555-555'
-]);
+])->getBodyAsArray();
 //*/
 
 // List a single address

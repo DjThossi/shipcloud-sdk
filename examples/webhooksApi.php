@@ -19,14 +19,14 @@ $result = $shipcloudFactory->getWebhooksApi()->create([
         "shipment.tracking.delayed",
         "shipment.tracking.delivered",
     ],
-]);
+])->getBodyAsArray();
 //*/
 
 // List a single webhook
-// $result = $shipcloudFactory->getWebhooksApi()->find($result['id']);
+// $result = $shipcloudFactory->getWebhooksApi()->find($result['id'])->getBodyAsArray();
 
 // remove a single webhook
-// $result = $shipcloudFactory->getWebhooksApi()->remove($result['id']);
+// $result = $shipcloudFactory->getWebhooksApi()->remove($result['id'])->wasSuccessful();
 
 /* @noinspection ForgottenDebugOutputInspection */
 var_dump($result);

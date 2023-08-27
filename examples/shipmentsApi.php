@@ -49,14 +49,14 @@ $result = $shipcloudFactory->getShipmentsApi()->create([
     "reference_number" => "ref123456",
     "notification_email" => "person@example.com",
     "create_shipping_label" => true,
-]);
+])->getBodyAsArray();
 //*/
 
 // List a single shipment
-// $result = $shipcloudFactory->getShipmentsApi()->find($result['id']);
+// $result = $shipcloudFactory->getShipmentsApi()->find($result['id'])->getBodyAsArray();
 
 // remove a single shipment
-// $result = $shipcloudFactory->getShipmentsApi()->remove($result['id']);
+// $result = $shipcloudFactory->getShipmentsApi()->remove($result['id'])->wasSuccessful();
 
 /* @noinspection ForgottenDebugOutputInspection */
 var_dump($result);

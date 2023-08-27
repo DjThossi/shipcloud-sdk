@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace DjThossi\ShipcloudSdk\Api;
 
+use DjThossi\ShipcloudSdk\Domain\Response;
 use DjThossi\ShipcloudSdk\Http\Client;
-use Psr\Http\Message\ResponseInterface;
 
 abstract class Api
 {
@@ -14,39 +14,35 @@ abstract class Api
     ) {
     }
 
-    protected function get($uri = null, $parameters = []): array
+    protected function get($uri = null, $parameters = []): Response
     {
-        return json_decode(
-            $this->execute('get', $uri, $parameters)->getBody()->getContents(),
-            true,
-            512,
-            \JSON_THROW_ON_ERROR
-        );
+        return $this->execute('get', $uri, $parameters);
     }
 
-    protected function post($uri = null, $parameters = [], $body = []): array
+    protected function post($uri = null, $parameters = [], $body = []): Response
     {
-        return json_decode(
-            $this->execute('post', $uri, $parameters, $body)->getBody()->getContents(),
-            true,
-            512,
-            \JSON_THROW_ON_ERROR
-        );
+        return $this->execute('post', $uri, $parameters, $body);
     }
 
-    protected function delete($uri = null, $parameters = [], $body = []): bool
+    protected function delete($uri = null, $parameters = [], $body = []): Response
     {
-        return 204 === $this->execute('delete', $uri, $parameters, $body)->getStatusCode();
+        return $this->execute('delete', $uri, $parameters, $body);
     }
 
-    protected function execute($httpMethod, $uri, array $parameters = [], array $body = []): ResponseInterface
+    protected function execute($httpMethod, $uri, array $parameters = [], array $body = []): Response
     {
-        return $this->client->{$httpMethod}(
+        $response = $this->client->{$httpMethod}(
             $uri,
             [
                 'query' => $parameters,
                 'json' => $body,
             ]
+        );
+
+        return new Response(
+            $response->getStatusCode(),
+            $response->getHeaders(),
+            $response->getBody()->getContents()
         );
     }
 }

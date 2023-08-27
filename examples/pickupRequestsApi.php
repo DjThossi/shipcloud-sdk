@@ -30,11 +30,11 @@ $result = $shipcloudFactory->getPickupRequestsApi()->create([
         "country" => "DE",
         "phone" => "555-555",
     ],
-]);
+])->getBodyAsArray();
 //*/
 
 // List a single pickup requests
-// $result = $shipcloudFactory->getPickupRequestsApi()->find($result['id']);
+// $result = $shipcloudFactory->getPickupRequestsApi()->find($result['id'])->getBodyAsArray();
 
 /* @noinspection ForgottenDebugOutputInspection */
 var_dump($result);

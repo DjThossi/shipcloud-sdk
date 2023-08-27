@@ -25,7 +25,8 @@
     },
     "autoload": {
         "psr-4": {
-            "DjThossi\\ShipcloudSdk\\": "src/"
+            "DjThossi\\ShipcloudSdk\\": "src/",
+            "DjThossi\\ShipcloudSdk\\Tests\\": "tests"
         }
     },
     "minimum-stability": "stable"

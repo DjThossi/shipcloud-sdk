@@ -6,23 +6,19 @@ namespace DjThossi\ShipcloudSdk\Tests\Unit\Api;
 
 use DjThossi\ShipcloudSdk\Api\ShipmentsApi;
 use DjThossi\ShipcloudSdk\Http\Client;
-use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 
-class ShipmentsApiTest extends TestCase
+class ShipmentsApiTest extends ApiTestCase
 {
     public function testAll(): void
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
             ->method('get')
-            ->willReturn(new Response(200, [], '{"foo": "bar"}'));
+            ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new ShipmentsApi($clientMock);
-        $result = $api->all();
-        $this->assertIsArray($result);
-        $this->assertCount(1, $result);
-        $this->assertEquals(['foo' => 'bar'], $result);
+        $response = $api->all();
+        $this->assertEquals(['foo' => 'bar'], $response->getBodyAsArray());
     }
 
     public function testFind(): void
@@ -30,13 +26,11 @@ class ShipmentsApiTest extends TestCase
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
             ->method('get')
-            ->willReturn(new Response(200, [], '{"foo": "bar"}'));
+            ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new ShipmentsApi($clientMock);
-        $result = $api->find('1234567');
-        $this->assertIsArray($result);
-        $this->assertCount(1, $result);
-        $this->assertEquals(['foo' => 'bar'], $result);
+        $response = $api->find('1234567');
+        $this->assertEquals(['foo' => 'bar'], $response->getBodyAsArray());
     }
 
     public function testCreate(): void
@@ -44,15 +38,13 @@ class ShipmentsApiTest extends TestCase
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
             ->method('post')
-            ->willReturn(new Response(200, [], '{"foo": "bar"}'));
+            ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new ShipmentsApi($clientMock);
-        $result = $api->create([
+        $response = $api->create([
             'key' => 'value',
         ]);
-        $this->assertIsArray($result);
-        $this->assertCount(1, $result);
-        $this->assertEquals(['foo' => 'bar'], $result);
+        $this->assertEquals(['foo' => 'bar'], $response->getBodyAsArray());
     }
 
     public function testDelete(): void
@@ -60,10 +52,10 @@ class ShipmentsApiTest extends TestCase
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
             ->method('delete')
-            ->willReturn(new Response(204));
+            ->willReturn($this->createResponseMock(204));
 
         $api = new ShipmentsApi($clientMock);
-        $result = $api->remove('a5c2...');
-        $this->assertTrue($result);
+        $response = $api->remove('a5c2...');
+        $this->assertTrue($response->wasSuccessful());
     }
 }

@@ -6,22 +6,18 @@ namespace DjThossi\ShipcloudSdk\Tests\Unit\Api;
 
 use DjThossi\ShipcloudSdk\Api\CarriersApi;
 use DjThossi\ShipcloudSdk\Http\Client;
-use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 
-class CarriersApiTest extends TestCase
+class CarriersApiTest extends ApiTestCase
 {
     public function testAll(): void
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
             ->method('get')
-            ->willReturn(new Response(200, [], '{"foo": "bar"}'));
+            ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new CarriersApi($clientMock);
-        $result = $api->all();
-        $this->assertIsArray($result);
-        $this->assertCount(1, $result);
-        $this->assertEquals(['foo' => 'bar'], $result);
+        $response = $api->all();
+        $this->assertEquals(['foo' => 'bar'], $response->getBodyAsArray());
     }
 }
