@@ -1,6 +1,5 @@
 # shipcloud Sdk
 [![Code Climate](https://api.codeclimate.com/v1/badges/cd0fed66f28952e53039/maintainability)](https://codeclimate.com/github/DjThossi/shipcloud-sdk/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/cd0fed66f28952e53039/test_coverage)](https://codeclimate.com/github/DjThossi/shipcloud-sdk/test_coverage)
 
 This is a PHP library for interacting with shipclouds API.
 
