@@ -29,5 +29,6 @@ composer require djthossi/shipcloud-sdk
 ## Examples
 You'll find examples for most Apis in the `~/examples` folder. Have fun with it.
 
-## Contribute
-You want to contribute? I'm happy to get some help with this repository. Simply get in touch with me via github or open a pull request.
+## Contribute to this repo
+For more details click [here](CONTRIBUTING.md)
+
