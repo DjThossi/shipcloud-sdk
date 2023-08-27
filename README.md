@@ -14,6 +14,8 @@ This library is supporting the following entities in shipcloud's version v1
 - Pickup request
 - Shipment quote
 - Shipments
+- Trackers
+- Webhooks
 
 The Endpoint `Rates` is not part of this library as it is deprecated and will be removed in later versions. Use `Shipment Quuotes` instead.
 
