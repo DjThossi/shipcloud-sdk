@@ -6,6 +6,7 @@ namespace DjThossi\ShipcloudSdk\Api;
 
 use DjThossi\ShipcloudSdk\Domain\Response;
 use DjThossi\ShipcloudSdk\Http\Client;
+use GuzzleHttp\Psr7\Response AS Psr7Response;
 
 abstract class Api
 {
@@ -14,31 +15,34 @@ abstract class Api
     ) {
     }
 
-    protected function get($uri = null, $parameters = []): Response
+    protected function get(string $uri, array $parameters = []): Psr7Response
     {
         return $this->execute('get', $uri, $parameters);
     }
 
-    protected function post($uri = null, $parameters = [], $body = []): Response
+    protected function post(string $uri, array $parameters = [], array $body = []): Psr7Response
     {
         return $this->execute('post', $uri, $parameters, $body);
     }
 
-    protected function delete($uri = null, $parameters = [], $body = []): Response
+    protected function delete(string $uri, array $parameters = [], array $body = []): Psr7Response
     {
         return $this->execute('delete', $uri, $parameters, $body);
     }
 
-    protected function execute($httpMethod, $uri, array $parameters = [], array $body = []): Response
+    protected function execute(string $httpMethod, string $uri, array $parameters = [], array $body = []): Psr7Response
     {
-        $response = $this->client->{$httpMethod}(
+        return $this->client->{$httpMethod}(
             $uri,
             [
                 'query' => $parameters,
                 'json' => $body,
             ]
         );
+    }
 
+    protected function mapResponse(Psr7Response $response): Response
+    {
         return new Response(
             $response->getStatusCode(),
             $response->getHeaders(),

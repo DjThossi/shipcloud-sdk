@@ -12,16 +12,16 @@ class PickupRequestsApi extends Api
 
     public function create(array $body): Response
     {
-        return $this->post(self::MAIN_URI, [], $body);
+        return $this->mapResponse($this->post(self::MAIN_URI, [], $body));
     }
 
     public function find(string $id): Response
     {
-        return $this->get(self::MAIN_URI . '/' . $id);
+        return $this->mapResponse($this->get(self::MAIN_URI . '/' . $id));
     }
 
     public function all(): Response
     {
-        return $this->get(self::MAIN_URI);
+        return $this->mapResponse($this->get(self::MAIN_URI));
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DjThossi\ShipcloudSdk\Tests\Integration\Domain;
+namespace DjThossi\ShipcloudSdk\Tests\Unit\Domain;
 
 use DjThossi\ShipcloudSdk\Domain\RateLimit;
 use PHPUnit\Framework\TestCase;

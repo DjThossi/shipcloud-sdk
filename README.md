@@ -29,7 +29,7 @@ composer require djthossi/shipcloud-sdk
 ```
 
 ## Examples
-You'll find examples for most Apis in the `~/examples` folder. Have fun with it.
+You'll find examples for all API endpoints in the `~/examples` folder. Have fun with it.
 
 ## Usage in Symfony
 You want to use this library inside a symfony project including auto-wiring? After installing simply add this code to your `config/services.yaml`
@@ -45,7 +45,7 @@ Add this to the services section of your `services.yaml`
 ```yaml
 services:
   # shipcloud services
-  DjThossi\ShipcloudSdk\Http\:
+    DjThossi\ShipcloudSdk\Http\:
         resource: '../vendor/djthossi/shipcloud-sdk/src/Http'
         bind:
             $apiKey: '%app.SHIPCLOUD_API_KEY%'

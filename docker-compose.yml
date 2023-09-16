@@ -1,5 +1,5 @@
 services:
-  phpLatest:
+  php:
     image: sineverba/php8xc:latest
     build: .
     volumes:

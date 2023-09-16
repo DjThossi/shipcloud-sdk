@@ -12,6 +12,6 @@ class CarriersApi extends Api
 
     public function all(): Response
     {
-        return $this->get(self::MAIN_URI);
+        return $this->mapResponse($this->get(self::MAIN_URI));
     }
 }

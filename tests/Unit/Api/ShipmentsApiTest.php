@@ -38,13 +38,27 @@ class ShipmentsApiTest extends ApiTestCase
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
             ->method('post')
-            ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
+            ->willReturn($this->createResponseMock(
+                200,
+                [],
+                '{"id": "1", "carrier_tracking_no": "2", "carrier_tracking_url": "https://www.example.com/#1", "tracking_url": "https://www.example.com/#2", "label_url": "https://www.example.com/#3", "price": 0.0}'
+            ));
 
         $api = new ShipmentsApi($clientMock);
         $response = $api->create([
-            'key' => 'value',
+            'id' => 'value',
         ]);
-        $this->assertEquals(['foo' => 'bar'], $response->getBodyAsArray());
+        $this->assertEquals(
+            [
+                'id' => '1',
+                'carrier_tracking_no' => '2', 
+                'carrier_tracking_url' => 'https://www.example.com/#1',
+                'tracking_url' => 'https://www.example.com/#2',
+                'label_url' => 'https://www.example.com/#3',
+                'price' => 0.0,
+            ],
+            $response->getBodyAsArray()
+        );
     }
 
     public function testDelete(): void

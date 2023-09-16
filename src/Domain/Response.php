@@ -7,9 +7,9 @@ namespace DjThossi\ShipcloudSdk\Domain;
 class Response
 {
     public function __construct(
-        private readonly int $statusCode,
-        private readonly array $headers,
-        private readonly string $body
+        protected readonly int $statusCode,
+        protected readonly array $headers,
+        protected readonly string $body
     ) {
         $this->ensureRateLimitHeadersExist();
     }

@@ -12,6 +12,6 @@ class DefaultShippingAddressApi extends Api
 
     public function show(): Response
     {
-        return $this->get(self::MAIN_URI);
+        return $this->mapResponse($this->get(self::MAIN_URI));
     }
 }

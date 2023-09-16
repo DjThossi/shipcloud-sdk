@@ -12,6 +12,6 @@ class ShipmentQuotesApi extends Api
 
     public function create(array $body): Response
     {
-        return $this->post(self::MAIN_URI, [], $body);
+        return $this->mapResponse($this->post(self::MAIN_URI, [], $body));
     }
 }
