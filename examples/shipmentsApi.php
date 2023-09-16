@@ -17,40 +17,40 @@ $result = $shipcloudFactory->getShipmentsApi()->all();
 // Create your first shipment
 /*
 $result = $shipcloudFactory->getShipmentsApi()->create([
-    "to" => [
-        "company" => "Receiver Inc.",
-        "first_name" => "Max",
-        "last_name" => "Mustermann",
-        "street" => "Beispielstrasse",
-        "street_no" => "42",
-        "city" => "Hamburg",
-        "zip_code" => "22100",
-        "country" => "DE",
+    'to' => [
+        'company' => 'Receiver Inc.',
+        'first_name' => 'Max',
+        'last_name' => 'Mustermann',
+        'street' => 'Beispielstrasse',
+        'street_no' => '42',
+        'city' => 'Hamburg',
+        'zip_code' => '22100',
+        'country' => 'DE',
     ],
-    "from" => [
-        "company" => "Receiver Inc.",
-        "first_name" => "Max",
-        "last_name" => "Mustermann",
-        "street" => "Beispielstrasse",
-        "street_no" => "42",
-        "city" => "Hamburg",
-        "zip_code" => "22100",
-        "country" => "DE",
+    'from' => [
+        'company' => 'Receiver Inc.',
+        'first_name' => 'Max',
+        'last_name' => 'Mustermann',
+        'street' => 'Beispielstrasse',
+        'street_no' => '42',
+        'city' => 'Hamburg',
+        'zip_code' => '22100',
+        'country' => 'DE',
     ],
-    "package" => [
-        "weight" => 1.5,
-        "length" => 20,
-        "width" => 20,
-        "height" => 20,
-        "type" => "parcel",
+    'package' => [
+        'weight' => 1.5,
+        'length' => 20,
+        'width' => 20,
+        'height' => 20,
+        'type' => 'parcel',
     ],
-    "carrier" => "ups",
-    "service" => "standard",
-    "reference_number" => "ref123456",
-    "notification_email" => "person@example.com",
-    "create_shipping_label" => true,
+    'carrier' => 'ups',
+    'service' => 'standard',
+    'reference_number' => 'ref123456',
+    'notification_email' => 'person@example.com',
+    'create_shipping_label' => true,
 ])->getBodyAsArray();
-//*/
+// */
 
 // List a single shipment
 // $result = $shipcloudFactory->getShipmentsApi()->find($result['id'])->getBodyAsArray();
