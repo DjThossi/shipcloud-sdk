@@ -14,10 +14,10 @@ class ShipmentsCreateResponseTest extends TestCase
 
     private const BODY = '{"id": "1", "carrier_tracking_no": "2", "carrier_tracking_url": "https://www.example.com/#1", "tracking_url": "https://www.example.com/#2", "label_url": "https://www.example.com/#3", "price": 0.0}';
 
-    public function testGetShipment(): void
+    public function testGetBodyAsObject(): void
     {
         $response = $this->createWorkingResponseObject();
-        $this->assertEquals('1', $response->getShipment()->getId()->asString());
+        $this->assertEquals('1', $response->getBodyAsObject()->getId()->asString());
     }
 
     public function testThrowsExceptionWhenKeyIsMissing(): void

@@ -38,6 +38,7 @@ class ResponseTest extends TestCase
     public function testGetBodyAsObject(): void
     {
         $response = $this->createWorkingResponseObject();
+        $this->assertInstanceOf(\stdClass::class, $response->getBodyAsObject());
         $this->assertObjectHasProperty('foo', $response->getBodyAsObject());
         $this->assertEquals('bar', $response->getBodyAsObject()->foo);
     }

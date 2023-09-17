@@ -21,7 +21,7 @@ class ShipmentCreateTest extends TestCase
     protected const TRACKING_URL = 'https://www.example.com/#2';
     protected const LABEL_URL = 'https://www.example.com/#3';
     protected const PRICE = 1.234;
-    
+
     public function testGetId(): void
     {
         $object = $this->createWorkingObject();

@@ -32,7 +32,7 @@ class ShipmentsCreateResponse extends Response
         $this->ensureBody();
     }
 
-    public function getShipment(): ShipmentsCreate
+    public function getBodyAsObject(): ShipmentsCreate
     {
         $body = $this->getBodyAsArray();
 

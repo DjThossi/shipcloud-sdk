@@ -51,7 +51,7 @@ class ShipmentsApiTest extends ApiTestCase
         $this->assertEquals(
             [
                 'id' => '1',
-                'carrier_tracking_no' => '2', 
+                'carrier_tracking_no' => '2',
                 'carrier_tracking_url' => 'https://www.example.com/#1',
                 'tracking_url' => 'https://www.example.com/#2',
                 'label_url' => 'https://www.example.com/#3',

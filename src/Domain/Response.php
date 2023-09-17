@@ -28,7 +28,7 @@ class Response
         return json_decode($this->body, true, 512, \JSON_THROW_ON_ERROR);
     }
 
-    public function getBodyAsObject(): \stdClass
+    public function getBodyAsObject(): object
     {
         if ('' === trim($this->body)) {
             return new \stdClass();
