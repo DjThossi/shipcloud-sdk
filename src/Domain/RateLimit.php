@@ -11,7 +11,8 @@ class RateLimit
         private readonly int $interval,
         private readonly int $remaining,
         private readonly int $reset
-    ) {}
+    ) {
+    }
 
     public function getLimit(): int
     {

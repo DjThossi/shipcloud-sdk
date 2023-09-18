@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace DjThossi\ShipcloudSdk\Tests\Unit\Domain;
 
-use DjThossi\ShipcloudSdk\Domain\InvalidIdException;
 use DjThossi\ShipcloudSdk\Domain\Id;
+use DjThossi\ShipcloudSdk\Domain\InvalidIdException;
 use PHPUnit\Framework\TestCase;
 
 class IdTest extends TestCase

@@ -31,6 +31,12 @@ return $config
         'phpdoc_order' => true,
         'concat_space' => ['spacing' => 'one'],
         'declare_strict_types' => true,
+        'yoda_style' => [
+            'equal' => false,
+            'identical' => false,
+            'less_and_greater' => false,
+            'always_move_variable' => false,
+        ],
     ))
     ->setFinder($finder)
 ;

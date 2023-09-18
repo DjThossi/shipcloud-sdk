@@ -21,7 +21,7 @@ class Response
 
     public function getBodyAsArray(): array
     {
-        if ('' === trim($this->body)) {
+        if (trim($this->body) === '') {
             return [];
         }
 
@@ -30,7 +30,7 @@ class Response
 
     public function getBodyAsObject(): object
     {
-        if ('' === trim($this->body)) {
+        if (trim($this->body) === '') {
             return new \stdClass();
         }
 

@@ -12,6 +12,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+
+## [3.0.0] - 2023-09-16
+
+
+### Fixed
+- Prevent Yoda style comparisons 
+- CS fixes for Domain object forgotten in 2.0.0
+### Changed
+- Change return type Response::getBodyAsObject() from \stdClass to object
+- Change return type ShipmentCreateResponse::getBodyAsObject() from \stdClass to ShipmentCreate
+### Removed
+- ShipmentCreateResponse::getShipment()
+
+
 ## [2.0.0] - 2023-09-16
 
 ### Added
@@ -54,7 +68,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add main Logic to support all (except rates) shipcloud API endpoints
 
-[unreleased]: https://github.com/DjThossi/shipcloud-sdk/compare/2.0.0...HEAD
+[unreleased]: https://github.com/DjThossi/shipcloud-sdk/compare/3.0.0...HEAD
+[2.0.0]: https://github.com/DjThossi/shipcloud-sdk/compare/2.0.0...3.0.0
 [2.0.0]: https://github.com/DjThossi/shipcloud-sdk/compare/1.0.3...2.0.0
 [1.0.3]: https://github.com/DjThossi/shipcloud-sdk/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/DjThossi/shipcloud-sdk/compare/1.0.1...1.0.2

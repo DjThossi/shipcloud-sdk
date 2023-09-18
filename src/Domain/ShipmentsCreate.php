@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace DjThossi\ShipcloudSdk\Domain;
 
 class ShipmentsCreate
@@ -11,7 +13,8 @@ class ShipmentsCreate
         private readonly TrackingUrl $trackingUrl,
         private readonly LabelUrl $labelUrl,
         private readonly Price $price
-    ){}
+    ) {
+    }
 
     public function getId(): Id
     {

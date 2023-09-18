@@ -6,7 +6,7 @@ namespace DjThossi\ShipcloudSdk\Api;
 
 use DjThossi\ShipcloudSdk\Domain\Response;
 use DjThossi\ShipcloudSdk\Http\Client;
-use GuzzleHttp\Psr7\Response AS Psr7Response;
+use GuzzleHttp\Psr7\Response as Psr7Response;
 
 abstract class Api
 {
