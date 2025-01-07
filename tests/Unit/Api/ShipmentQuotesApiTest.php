@@ -13,7 +13,8 @@ class ShipmentQuotesApiTest extends ApiTestCase
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
-            ->method('post')
+            ->method('execute')
+            ->with('post')
             ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new ShipmentQuotesApi($clientMock);

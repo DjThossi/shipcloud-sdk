@@ -13,7 +13,8 @@ class AddressesApiTest extends ApiTestCase
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
-            ->method('get')
+            ->method('execute')
+            ->with('get')
             ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new AddressesApi($clientMock);
@@ -25,7 +26,8 @@ class AddressesApiTest extends ApiTestCase
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
-            ->method('get')
+            ->method('execute')
+            ->with('get')
             ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new AddressesApi($clientMock);
@@ -37,7 +39,8 @@ class AddressesApiTest extends ApiTestCase
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
-            ->method('post')
+            ->method('execute')
+            ->with('post')
             ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new AddressesApi($clientMock);

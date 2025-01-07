@@ -13,7 +13,8 @@ class ShipmentsApiTest extends ApiTestCase
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
-            ->method('get')
+            ->method('execute')
+            ->with('get')
             ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new ShipmentsApi($clientMock);
@@ -25,7 +26,8 @@ class ShipmentsApiTest extends ApiTestCase
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
-            ->method('get')
+            ->method('execute')
+            ->with('get')
             ->willReturn($this->createResponseMock(200, [], '{"foo": "bar"}'));
 
         $api = new ShipmentsApi($clientMock);
@@ -37,7 +39,8 @@ class ShipmentsApiTest extends ApiTestCase
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
-            ->method('post')
+            ->method('execute')
+            ->with('post')
             ->willReturn($this->createResponseMock(
                 200,
                 [],
@@ -65,7 +68,8 @@ class ShipmentsApiTest extends ApiTestCase
     {
         $clientMock = $this->createMock(Client::class);
         $clientMock->expects($this->once())
-            ->method('delete')
+            ->method('execute')
+            ->with('delete')
             ->willReturn($this->createResponseMock(204));
 
         $api = new ShipmentsApi($clientMock);

@@ -6,7 +6,7 @@ namespace DjThossi\ShipcloudSdk\Api;
 
 use DjThossi\ShipcloudSdk\Domain\Response;
 use DjThossi\ShipcloudSdk\Http\Client;
-use GuzzleHttp\Psr7\Response as Psr7Response;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class Api
 {
@@ -15,33 +15,22 @@ abstract class Api
     ) {
     }
 
-    protected function get(string $uri, array $parameters = []): Psr7Response
+    protected function get(string $uri, array $parameters = []): ResponseInterface
     {
-        return $this->execute('get', $uri, $parameters);
+        return $this->client->execute('get', $uri, $parameters);
     }
 
-    protected function post(string $uri, array $parameters = [], array $body = []): Psr7Response
+    protected function post(string $uri, array $parameters = [], array $body = []): ResponseInterface
     {
-        return $this->execute('post', $uri, $parameters, $body);
+        return $this->client->execute('post', $uri, $parameters, $body);
     }
 
-    protected function delete(string $uri, array $parameters = [], array $body = []): Psr7Response
+    protected function delete(string $uri, array $parameters = [], array $body = []): ResponseInterface
     {
-        return $this->execute('delete', $uri, $parameters, $body);
+        return $this->client->execute('delete', $uri, $parameters, $body);
     }
 
-    protected function execute(string $httpMethod, string $uri, array $parameters = [], array $body = []): Psr7Response
-    {
-        return $this->client->{$httpMethod}(
-            $uri,
-            [
-                'query' => $parameters,
-                'json' => $body,
-            ]
-        );
-    }
-
-    protected function mapResponse(Psr7Response $response): Response
+    protected function mapResponse(ResponseInterface $response): Response
     {
         return new Response(
             $response->getStatusCode(),
