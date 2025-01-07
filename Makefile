@@ -1,8 +1,9 @@
 .DEFAULT_GOAL:=help
+DOCKER_COMPOSE_SERVICE_NAME=php8.1
 
 .PHONY: help
 help:
-	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[\.0-9a-zA-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: setup
 setup: remove-composer-lock php8.1-composer-update ## Setup project and dependencies
@@ -85,3 +86,67 @@ phpLatest-test-fast: ## Run phpunit without coverage with PHP version Latest
 .PHONY: phpLatest-test
 phpLatest-test: ## Run phpunit with coverage with PHP version Latest
 	docker compose run --rm php sh -c "vendor/bin/phpunit"
+
+
+#Examples
+DOCKER_COMPOSE_SERVICE_NAME=php8.1
+
+.PHONY: composer-install
+composer-install: ## Run Composer install with the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm php sh -c "composer install"
+
+.PHONY: composer-update
+composer-update: ## Run Composer update with the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm php sh -c "composer update"
+
+.PHONY: test-fast
+test-fast: ## Run phpunit without coverage with the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm php sh -c "vendor/bin/phpunit --no-coverage"
+
+.PHONY: test
+test: ## Run phpunit with coverage with the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm php sh -c "vendor/bin/phpunit"
+
+.PHONY: examples-addressesApi
+examples-addressesApi: ## Runs the example code for the addresses API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/addressesApi.php
+
+.PHONY: examples-carriersApi
+examples-carriersApi: ## Runs the example code for the carriers API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/carriersApi.php
+
+.PHONY: examples-defaultReturnsAddressApi
+examples-defaultReturnsAddressApi: ## Runs the example code for the defaultReturnsAddress API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/defaultReturnsAddressApi.php
+
+.PHONY: examples-defaultShippingAddressApi
+examples-defaultShippingAddressApi: ## Runs the example code for the defaultShippingAddress API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/defaultShippingAddressApi.php
+
+.PHONY: examples-invoiceAddressApi
+examples-invoiceAddressApi: ## Runs the example code for the invoiceAddress API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/invoiceAddressApi.php
+
+.PHONY: examples-meApi
+examples-meApi: ## Runs the example code for the me API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/meApi.php
+
+.PHONY: examples-pickupRequestsApi
+examples-pickupRequestsApi: ## Runs the example code for the pickupRequests API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/pickupRequestsApi.php
+
+.PHONY: examples-shipmentQuotesApi
+examples-shipmentQuotesApi: ## Runs the example code for the shipmentQuotes API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/shipmentQuotesApi.php
+
+.PHONY: examples-shipmentsApi
+examples-shipmentsApi: ## Runs the example code for the shipments API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/shipmentsApi.php
+
+.PHONY: examples-trackersApi
+examples-trackersApi: ## Runs the example code for the trackers API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/trackersApi.php
+
+.PHONY: examples-webhooksApi
+examples-webhooksApi: ## Runs the example code for the webhooks API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} -f examples/webhooksApi.php
