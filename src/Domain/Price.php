@@ -7,7 +7,7 @@ namespace DjThossi\ShipcloudSdk\Domain;
 class Price
 {
     public function __construct(
-        private readonly float $value
+        private readonly float $value,
     ) {
     }
 

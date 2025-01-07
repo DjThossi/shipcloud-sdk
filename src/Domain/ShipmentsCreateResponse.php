@@ -25,7 +25,7 @@ class ShipmentsCreateResponse extends Response
     public function __construct(
         int $statusCode,
         array $headers,
-        string $body
+        string $body,
     ) {
         parent::__construct($statusCode, $headers, $body);
 
@@ -52,7 +52,7 @@ class ShipmentsCreateResponse extends Response
 
         foreach (self::ALL_RESPONSE_KEYS as $responseKey) {
             if (!isset($body[$responseKey])) {
-                $message = sprintf(
+                $message = \sprintf(
                     'The key %s is missing in the response. Only the keys %s are available',
                     $responseKey,
                     implode(', ', array_keys($body))

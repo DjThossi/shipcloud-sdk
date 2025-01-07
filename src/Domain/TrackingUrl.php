@@ -7,7 +7,7 @@ namespace DjThossi\ShipcloudSdk\Domain;
 class TrackingUrl
 {
     public function __construct(
-        private readonly string $value
+        private readonly string $value,
     ) {
         $this->ensure();
     }

@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
+
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__ . '/examples')
     ->in(__DIR__ . '/src')
@@ -9,6 +11,7 @@ $finder = PhpCsFixer\Finder::create()
 $config = new PhpCsFixer\Config();
 
 return $config
+    ->setParallelConfig(ParallelConfigFactory::detect())
     ->setRiskyAllowed(true)
     ->setRules(array(
         '@Symfony' => true,

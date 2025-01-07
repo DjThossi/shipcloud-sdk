@@ -11,7 +11,7 @@ use Psr\Http\Message\ResponseInterface;
 abstract class Api
 {
     public function __construct(
-        protected readonly Client $client
+        protected readonly Client $client,
     ) {
     }
 

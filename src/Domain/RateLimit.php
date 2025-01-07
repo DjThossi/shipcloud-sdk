@@ -10,7 +10,7 @@ class RateLimit
         private readonly int $limit,
         private readonly int $interval,
         private readonly int $remaining,
-        private readonly int $reset
+        private readonly int $reset,
     ) {
     }
 

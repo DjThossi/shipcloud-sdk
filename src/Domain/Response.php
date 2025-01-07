@@ -9,7 +9,7 @@ class Response
     public function __construct(
         protected readonly int $statusCode,
         protected readonly array $headers,
-        protected readonly string $body
+        protected readonly string $body,
     ) {
         $this->ensureRateLimitHeadersExist();
     }

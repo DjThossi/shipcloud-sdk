@@ -12,7 +12,7 @@ class ShipmentsCreate
         private readonly CarrierTrackingUrl $carrierTrackingUrl,
         private readonly TrackingUrl $trackingUrl,
         private readonly LabelUrl $labelUrl,
-        private readonly Price $price
+        private readonly Price $price,
     ) {
     }
 

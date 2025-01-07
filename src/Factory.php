@@ -20,7 +20,7 @@ use DjThossi\ShipcloudSdk\Http\Client;
 class Factory
 {
     public function __construct(
-        private readonly ?string $apiKey = null
+        private readonly ?string $apiKey = null,
     ) {
     }
 
