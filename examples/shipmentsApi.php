@@ -12,7 +12,7 @@ $shipcloudFactory = new DjThossi\ShipcloudSdk\Factory($sandboxApiKey);
 $result = $shipcloudFactory->getShipmentsApi()->all();
 
 // List all UPS shipments
-// $result = $shipcloudFactory->getShipmentsApi()->all(['carrier' => 'ups']);
+//$result = $shipcloudFactory->getShipmentsApi()->all(['carrier' => 'ups']);
 
 // Create your first shipment
 /*
@@ -49,14 +49,14 @@ $result = $shipcloudFactory->getShipmentsApi()->create([
     'reference_number' => 'ref123456',
     'notification_email' => 'person@example.com',
     'create_shipping_label' => true,
-])->getBodyAsArray();
+])->getBodyAsObject();
 // */
 
 // List a single shipment
-// $result = $shipcloudFactory->getShipmentsApi()->find($result['id'])->getBodyAsArray();
+//$result = $shipcloudFactory->getShipmentsApi()->find($result->getId()->asString())->getBodyAsArray();
 
 // remove a single shipment
-// $result = $shipcloudFactory->getShipmentsApi()->remove($result['id'])->wasSuccessful();
+//$result = $shipcloudFactory->getShipmentsApi()->remove($result->getId()->asString())->wasSuccessful();
 
 /* @noinspection ForgottenDebugOutputInspection */
 var_dump($result);
