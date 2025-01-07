@@ -12,9 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [4.0.0] - 2025-01-07
+
+### Added
+- Upgraded PHP cs fixer to version 3.66 and introduced parallel runs
+### Fixed
+- Changed filename from carrirersApi.php to carriersApi.php
+### Changed
+- Change structure of DjThossi\ShipcloudSdk\Http\Client. It is not extending GuzzleClient anymore but using it. 
+
 
 ## [3.0.0] - 2023-09-16
-
 
 ### Fixed
 - Prevent Yoda style comparisons 
