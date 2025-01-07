@@ -12,7 +12,7 @@ remove-composer-lock: ## Setup project and dependencies
 	rm -f composer.lock | true
 
 .PHONY: all-test-fast
-all-test-fast: php8.1-composer-install php8.1-test-fast php8.2-composer-install php8.2-test-fast php8.3-composer-install php8.3-test-fast phpLatest-composer-install phpLatest-test-fast ## Setup project and dependencies
+all-test-fast: remove-composer-lock php8.1-composer-update php8.1-test-fast php8.2-composer-update php8.2-test-fast php8.3-composer-update php8.3-test-fast phpLatest-composer-update phpLatest-test-fast ## Runs composer-update and test-fast for each configured php version
 
 
 #PHP 8.1 Section
