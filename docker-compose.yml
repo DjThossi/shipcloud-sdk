@@ -1,15 +1,6 @@
 services:
-  php:
-    image: sineverba/php8xc:latest
-    build: .
-    volumes:
-      - ./:/var/www
-      - ~/.ssh:/root/.ssh:ro
-    working_dir: /var/www
-
   php8.1:
     image: sineverba/php8xc:1.11.0
-    build: .
     volumes:
       - ./:/var/www
       - ~/.ssh:/root/.ssh:ro
@@ -17,7 +8,20 @@ services:
 
   php8.2:
     image: sineverba/php8xc:1.15.0
-    build: .
+    volumes:
+      - ./:/var/www
+      - ~/.ssh:/root/.ssh:ro
+    working_dir: /var/www
+
+  php8.3:
+    image: sineverba/php8xc:1.18.0
+    volumes:
+      - ./:/var/www
+      - ~/.ssh:/root/.ssh:ro
+    working_dir: /var/www
+
+  php:
+    image: sineverba/php8xc:latest
     volumes:
       - ./:/var/www
       - ~/.ssh:/root/.ssh:ro
